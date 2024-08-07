@@ -19,15 +19,24 @@ Sub StepThree()
     Set ptCache = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=ptRange)
     Set pt = ptCache.CreatePivotTable(TableDestination:=wsPivot.Range("A1"), TableName:="MyPivotTable")
     
-    columnHeaders = Array("Header1", "Header2", "Header3", "Header4", "Header5", "Header6", "Header7", "Header8", "Header9") ' Replace with actual headers
+    columnHeaders = Array("1", "2", "3", "4", "5", "6", "7", "8", "9")
+    
+    For j = 1 To wsDest.Cells(1, wsDest.Columns.Count).End(xlToLeft).Column
+        If wsDest.Cells(1, j).Value = columnHeaders(0) Then
+            pt.PivotFields(columnHeaders(0)).Orientation = xlRowField
+            Exit For
+        End If
+    Next j
     
     For i = LBound(columnHeaders) To UBound(columnHeaders)
-        header = columnHeaders(i)
-        For j = 1 To wsDest.Cells(1, wsDest.Columns.Count).End(xlToLeft).Column
-            If wsDest.Cells(1, j).Value = header Then
-                pt.PivotFields(header).Orientation = xlDataField
-                Exit For
-            End If
-        Next j
+        If columnHeaders(i) <> columnHeaders(0) Then
+            header = columnHeaders(i)
+            For j = 1 To wsDest.Cells(1, wsDest.Columns.Count).End(xlToLeft).Column
+                If wsDest.Cells(1, j).Value = header Then
+                    pt.PivotFields(header).Orientation = xlDataField
+                    Exit For
+                End If
+            Next j
+        End If
     Next i
 End Sub
