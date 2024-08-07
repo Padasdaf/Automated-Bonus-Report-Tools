@@ -9,12 +9,12 @@ Sub StepOne()
     Set ws = ThisWorkbook.Sheets("Recovered_Sheet1")
     
     On Error Resume Next
-    Set wsDest = ThisWorkbook.Sheets("Sheet2")
+    Set wsDest = ThisWorkbook.Sheets("direct")
     On Error GoTo 0
     
     If wsDest Is Nothing Then
         Set wsDest = ThisWorkbook.Sheets.Add(After:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))
-        wsDest.Name = "Sheet2"
+        wsDest.Name = "direct"
     End If
     
     lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
