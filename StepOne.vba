@@ -20,7 +20,7 @@ Sub StepOne()
     lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
     For i = 1 To lastRow
         If IsNumeric(ws.Cells(i, "A").Value) Then
-            Columns(1).NumberFormat = "0"
+            ws.Cells(i, "A").Value = ws.Cells(i, "A").Value * 1
         End If
     Next i
     
