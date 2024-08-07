@@ -2,7 +2,7 @@ Sub StepFour()
     Dim wsNew As Worksheet
     
     Set wsNew = ThisWorkbook.Sheets.Add(After:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))
-    wsNew.Name = "NewSheet"
+    wsNew.Name = "support"
     
     wsNew.Range("A1").Value = 300003163
     wsNew.Range("A2").Value = 300003224
