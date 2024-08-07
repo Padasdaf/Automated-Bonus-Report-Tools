@@ -9,15 +9,15 @@ Sub StepThree()
     Dim i As Long, j As Long
     Dim header As String
     
-    Set wsDest = ThisWorkbook.Sheets("Sheet2")
+    Set wsDest = ThisWorkbook.Sheets("direct")
     lastRow = wsDest.Cells(wsDest.Rows.Count, "C").End(xlUp).Row
     
     Set ptRange = wsDest.Range("C1:O" & lastRow)
     Set wsPivot = ThisWorkbook.Sheets.Add(After:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))
-    wsPivot.Name = "PivotTableSheet"
+    wsPivot.Name = "basic"
     
     Set ptCache = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=ptRange)
-    Set pt = ptCache.CreatePivotTable(TableDestination:=wsPivot.Range("A1"), TableName:="MyPivotTable")
+    Set pt = ptCache.CreatePivotTable(TableDestination:=wsPivot.Range("A1"), TableName:="basic")
     
     columnHeaders = Array("1", "2", "3", "4", "5", "6", "7", "8", "9")
     
