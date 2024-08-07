@@ -32,6 +32,6 @@ Sub StepOne()
     
     lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
     destLastRow = wsDest.Cells(wsDest.Rows.Count, "A").End(xlUp).Row + 1
-    ws.Range("A1:E" & lastRow).Copy wsDest.Range("A" & destLastRow)
+    ws.Range("A1:Q" & lastRow).Copy wsDest.Range("A" & destLastRow)
     
 End Sub
