@@ -8,7 +8,7 @@ Sub StepTwo()
     Dim matchRow As Long
     Dim filePath As String
     
-    Set wsDest = ThisWorkbook.Sheets("Sheet2")
+    Set wsDest = ThisWorkbook.Sheets("direct")
     filePath = "C:\Users\503144637\Documents\Copy of GEHZ Direct mapping 1.xlsx"
     
     Set otherWb = Workbooks.Open(filePath)
